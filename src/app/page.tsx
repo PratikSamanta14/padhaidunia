@@ -18,7 +18,7 @@ export default function LandingPage() {
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
-            {["Home", "About Us", "Courses", "Team", "Contact Us"].map((item) => (
+            {["Home", "About Us", "Courses", "Teams", "Contact Us"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
@@ -54,7 +54,7 @@ export default function LandingPage() {
         {/* Mobile Nav Dropdown */}
         {isOpen && (
           <div className="md:hidden flex flex-col gap-4 px-6 pb-4 bg-white/90 backdrop-blur-md animate-slideDown">
-            {["Home", "About Us", "Courses", "Team", "Contact Us"].map((item) => (
+            {["Home", "About Us", "Courses", "Teams", "Contact Us"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
