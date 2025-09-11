@@ -21,7 +21,13 @@ export default function LandingPage() {
             {["Home", "About Us", "Courses", "Teams", "Contact Us"].map((item) => (
               <Link
                 key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                href={
+                  item === "Home"
+                    ? "/"
+                    : item === "About Us"
+                    ? "/AboutUs"
+                    : `/${item.toLowerCase().replace(/\s+/g, "-")}`
+                }
                 className="relative group"
               >
                 <span className="transition-colors duration-300 group-hover:text-blue-600">
@@ -57,7 +63,13 @@ export default function LandingPage() {
             {["Home", "About Us", "Courses", "Teams", "Contact Us"].map((item) => (
               <Link
                 key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                href={
+                  item === "Home"
+                    ? "/"
+                    : item === "About Us"
+                    ? "/AboutUs"
+                    : `/${item.toLowerCase().replace(/\s+/g, "-")}`
+                }
                 className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
