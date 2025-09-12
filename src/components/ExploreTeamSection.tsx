@@ -21,9 +21,9 @@ export default function ExploreTeamSection({ sections }: ExploreTeamSectionProps
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 relative z-10">
+    <section className="max-w-7xl mx-auto px-4 py-6 relative z-10">
       {/* Main Header - Collapsible */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <button
           onClick={toggleExpanded}
           className="group bg-[#1a1a2e]/40 backdrop-blur-sm rounded-2xl border border-purple-500/20 p-8 w-full hover:border-purple-400/40 hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] transition-all duration-500"
@@ -48,16 +48,12 @@ export default function ExploreTeamSection({ sections }: ExploreTeamSectionProps
       </div>
 
       {/* Collapsible Content */}
-      <div className={`transition-all duration-700 overflow-hidden ${
-        isExpanded 
-          ? 'max-h-[3000px] opacity-100' 
-          : 'max-h-0 opacity-0'
-      }`}>
-        <div className="space-y-12">
+      {isExpanded && (
+        <>
           {sections.map((section, index) => (
-            <div key={section.title} className="space-y-6">
+            <div key={section.title} className="mb-8">
               {/* Section Heading */}
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-2">
                 <div className="text-3xl">{section.icon}</div>
                 <div>
                   <h3 className="text-3xl font-bold text-white">{section.title}</h3>
@@ -69,7 +65,11 @@ export default function ExploreTeamSection({ sections }: ExploreTeamSectionProps
               </div>
 
               {/* Team Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
+              <div className={`grid gap-16 ${
+                section.title === "Founders" 
+                  ? "grid-cols-1 md:grid-cols-2 justify-center" 
+                  : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"
+              }`}>
                 {section.members.map((member, memberIndex) => (
                   <TeamCard
                     key={`${member.name}-${memberIndex}`}
@@ -80,8 +80,8 @@ export default function ExploreTeamSection({ sections }: ExploreTeamSectionProps
               </div>
             </div>
           ))}
-        </div>
-      </div>
+        </>
+      )}
     </section>
   );
 }

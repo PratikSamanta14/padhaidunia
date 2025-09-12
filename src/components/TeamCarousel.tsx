@@ -82,20 +82,72 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
   const spread = Math.max(0, Math.min(baseSpread, maxSpreadByBounds));
 
   return (
-    <div className="w-full" aria-live="polite">
+    <div className="w-full relative" aria-live="polite">
+      {/* Enhanced 3D floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Enhanced floating particles with glow */}
+        {[...Array(25)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-pulse"
+            style={{
+              left: `${20 + Math.random() * 60}%`,
+              top: `${30 + Math.random() * 40}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+              transform: `translateZ(${Math.random() * 400 - 200}px)`,
+              boxShadow: `0 0 10px rgba(56, 189, 248, 0.6)`,
+            }}
+          />
+        ))}
+        {/* Enhanced 3D geometric shapes with glow */}
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={`shape-${i}`}
+            className="absolute w-3 h-3 bg-gradient-to-br from-cyan-400/40 to-purple-400/40 rounded-sm animate-pulse"
+            style={{
+              left: `${10 + Math.random() * 80}%`,
+              top: `${20 + Math.random() * 60}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${4 + Math.random() * 3}s`,
+              transform: `translateZ(${Math.random() * 500 - 250}px) rotate(${Math.random() * 360}deg)`,
+              boxShadow: `0 0 15px rgba(56, 189, 248, 0.4)`,
+            }}
+          />
+        ))}
+        {/* Enhanced glowing orbs */}
+        {[...Array(7)].map((_, i) => (
+          <div
+            key={`orb-${i}`}
+            className="absolute w-4 h-4 bg-gradient-to-r from-cyan-400/50 to-purple-400/50 rounded-full blur-sm animate-pulse"
+            style={{
+              left: `${15 + Math.random() * 70}%`,
+              top: `${25 + Math.random() * 50}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 2}s`,
+              transform: `translateZ(${Math.random() * 600 - 300}px)`,
+              boxShadow: `0 0 20px rgba(56, 189, 248, 0.5)`,
+            }}
+          />
+        ))}
+      </div>
+      
       <div
         ref={hoverRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative max-w-[1400px] mx-auto h-[820px] sm:h-[900px] flex items-end justify-center perspective-[1200px] overflow-hidden"
+        className="relative max-w-[1400px] mx-auto h-[700px] sm:h-[750px] flex items-center justify-center perspective-[600px] overflow-hidden"
+        style={{
+          transformStyle: 'preserve-3d',
+        }}
       >
         <div ref={containerRef} className="relative w-full h-full">
           {ordered.slice(0, 5).map((m, i) => {
             const isActive = i === 2;
             const offset = i - 2; // -2,-1,0,1,2
             const translateX = offset * spread;
-            const offsetY = isActive ? 0 : 16; // lower side cards a bit
-            const rotate = isActive ? 0 : offset < 0 ? -9 : 9;
+            const offsetY = 0; // no vertical offset
+            const rotate = isActive ? 0 : offset < 0 ? -15 : 15;
             const scale = isActive ? 1 : Math.abs(offset) === 1 ? 0.92 : 0.86; // smaller side cards
             const z = isActive ? 80 : 40 - Math.abs(offset); // center clearly on top
             const opacity = isActive ? 1 : 0.6;
@@ -105,7 +157,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
                 type="button"
                 onClick={() => goTo((index + offset + total) % total)}
                 key={m.name}
-                className="absolute left-1/2 bottom-8 sm:bottom-12 translate-x-[-50%] will-change-transform focus:outline-none transition-transform duration-400 ease-[cubic-bezier(0.3,0.7,0.4,1)]"
+                className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] will-change-transform focus:outline-none transition-transform duration-400 ease-[cubic-bezier(0.3,0.7,0.4,1)]"
                 style={{
                   transformOrigin: "50% 100%",
                   transform: `translateX(${translateX}px) translateY(${offsetY}px) rotate(${rotate}deg) scale(${scale})`,
@@ -114,7 +166,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
                 }}
                 aria-label={isActive ? `${m.name}, active` : `View ${m.name}`}
               >
-                <div className={`relative w-[340px] sm:w-[420px] h-[560px] sm:h-[620px] rounded-[22px] overflow-hidden shadow-[0_20px_60px_rgba(56,189,248,0.20)] bg-[#122b3a]/95 backdrop-blur-sm ${isActive ? "ring-4 ring-cyan-300/70" : "ring-0"}`}>
+                <div className={`relative w-[340px] sm:w-[420px] h-[560px] sm:h-[620px] rounded-[22px] overflow-hidden shadow-[0_20px_60px_rgba(56,189,248,0.20)] bg-[#122b3a]/95 backdrop-blur-sm transition-all duration-500 hover:shadow-[0_30px_100px_rgba(56,189,248,0.6)] hover:shadow-cyan-500/40 hover:scale-[1.05] hover:-translate-y-2 hover:rotate-y-3 hover:rotate-x-2 ${isActive ? "ring-4 ring-cyan-300/70 shadow-[0_40px_120px_rgba(56,189,248,0.5)] shadow-cyan-500/50" : "ring-0"}`}>
                   <div className="relative h-[76%] w-full">
                     <Image
                       src={m.img}
