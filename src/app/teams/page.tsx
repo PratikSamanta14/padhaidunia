@@ -216,10 +216,10 @@ export default function TeamsPage() {
 
       {/* Meet Our Team Section - At the top */}
       <section className="max-w-5xl mx-auto text-center mb-8 px-4 pt-4 relative z-10">
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-300 to-cyan-400 bg-clip-text text-transparent">
-          Meet Our Team
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+          Meet Our <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Team</span>
         </h1>
-        <p className="mt-2 text-teal-100/80">
+        <p className="mt-4 text-xl text-purple-200/80 max-w-3xl mx-auto">
           The minds shaping the future of education at PadhaiDunia
         </p>
       </section>
@@ -231,6 +231,194 @@ export default function TeamsPage() {
 
       {/* Explore Team Section */}
       <ExploreTeamSection sections={teamSections} />
+
+      {/* Why Join Us Section - Console Design */}
+      <section className="relative z-10 py-16 px-4 mb-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Why Join <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">PadhaiDunia</span>?
+            </h2>
+            <p className="text-xl text-purple-200/80 max-w-3xl mx-auto">
+              Discover what makes exceptional talent thrive in our education-first environment
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Left Column - Console Interface */}
+            <div className="relative group">
+              <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl border border-purple-500/30 p-6 shadow-[0_0_50px_rgba(147,51,234,0.2)] hover:shadow-[0_0_80px_rgba(147,51,234,0.4)] transition-all duration-700">
+                {/* Console Header */}
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-purple-500/20">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <span className="text-white font-mono text-sm">PadhaiDunia Career Terminal</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 text-xs font-mono">ONLINE</span>
+                  </div>
+                </div>
+
+                {/* Console Content */}
+                <div className="space-y-4 mb-6 font-mono text-sm">
+                  {/* Terminal Lines */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-400">$</span>
+                    <span className="text-cyan-400">why-join-padhaidunia</span>
+                  </div>
+                  
+                  <div className="ml-4 space-y-2">
+                    <div className="text-green-400">✓ Analyzing career opportunities...</div>
+                    <div className="text-green-400">✓ Scanning company culture...</div>
+                    <div className="text-green-400">✓ Evaluating growth potential...</div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-400">$</span>
+                    <span className="text-cyan-400">cat benefits.txt</span>
+                  </div>
+
+                  <div className="ml-4 space-y-3 text-white">
+                    <div className="flex items-center gap-2">
+                      <span className="text-purple-400">→</span>
+                      <span className="text-yellow-400">Innovation-Driven:</span>
+                      <span>Cutting-edge AI education solutions</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-purple-400">→</span>
+                      <span className="text-yellow-400">Growth-Focused:</span>
+                      <span>Unlimited learning opportunities</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-purple-400">→</span>
+                      <span className="text-yellow-400">Impact-Minded:</span>
+                      <span>Transform education globally</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-purple-400">→</span>
+                      <span className="text-yellow-400">Team-Centric:</span>
+                      <span>Collaborative & supportive culture</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-400">$</span>
+                    <span className="text-cyan-400">./join-team.sh</span>
+                  </div>
+
+                  <div className="ml-4 text-green-400">
+                    <div>🚀 Initializing career journey...</div>
+                    <div className="animate-pulse">⏳ Ready to make an impact?</div>
+                  </div>
+                </div>
+
+                {/* Console Input */}
+                <div className="relative">
+                  <div className="flex items-center gap-2 bg-slate-800/50 border border-purple-500/30 rounded-lg px-4 py-3">
+                    <span className="text-purple-400 font-mono">$</span>
+                    <input
+                      type="text"
+                      placeholder="Type your question here..."
+                      className="flex-1 bg-transparent text-white placeholder-purple-300/60 focus:outline-none font-mono text-sm"
+                    />
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Benefits List */}
+            <div className="space-y-4">
+              {/* Inclusive Culture */}
+              <div className="relative group/benefit">
+                <div className="bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-xl rounded-2xl border border-purple-500/30 p-6 shadow-[0_0_30px_rgba(147,51,234,0.1)] hover:shadow-[0_0_50px_rgba(147,51,234,0.3)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold text-lg mb-1">Inclusive Culture</h3>
+                      <p className="text-purple-200/80 text-sm">Diverse perspectives driving breakthrough innovations in education technology.</p>
+                    </div>
+                    <svg className="w-5 h-5 text-white group-hover/benefit:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mission-Driven */}
+              <div className="relative group/benefit">
+                <div className="bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-xl rounded-2xl border border-purple-500/30 p-6 shadow-[0_0_30px_rgba(147,51,234,0.1)] hover:shadow-[0_0_50px_rgba(147,51,234,0.3)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold text-lg mb-1">Mission-Driven</h3>
+                      <p className="text-purple-200/80 text-sm">Every decision aligned with our commitment to advancing education for global impact.</p>
+                    </div>
+                    <svg className="w-5 h-5 text-white group-hover/benefit:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Professional Growth */}
+              <div className="relative group/benefit">
+                <div className="bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-xl rounded-2xl border border-purple-500/30 p-6 shadow-[0_0_30px_rgba(147,51,234,0.1)] hover:shadow-[0_0_50px_rgba(147,51,234,0.3)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.083 12.083 0 01.665-6.479L12 14z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold text-lg mb-1">Professional Growth</h3>
+                      <p className="text-purple-200/80 text-sm">Structured career development with mentorship and continuous learning opportunities.</p>
+                    </div>
+                    <svg className="w-5 h-5 text-white group-hover/benefit:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Work-Life Integration */}
+              <div className="relative group/benefit">
+                <div className="bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-xl rounded-2xl border border-purple-500/30 p-6 shadow-[0_0_30px_rgba(147,51,234,0.1)] hover:shadow-[0_0_50px_rgba(147,51,234,0.3)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold text-lg mb-1">Work-Life Integration</h3>
+                      <p className="text-purple-200/80 text-sm">Flexible arrangements supporting peak performance and personal well-being.</p>
+                    </div>
+                    <svg className="w-5 h-5 text-white group-hover/benefit:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action Section */}
       <section className="relative z-10 py-16 px-4">
