@@ -20,6 +20,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [containerWidth, setContainerWidth] = useState<number>(1200);
+  const [mounted, setMounted] = useState(false);
   const total = members.length;
   const hoverRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -40,6 +41,10 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -86,7 +91,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
       {/* Enhanced 3D floating elements with flow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating particles with 3D flow movement */}
-        {[...Array(30)].map((_, i) => (
+        {mounted && [...Array(30)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-pulse"
@@ -102,7 +107,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         ))}
         
         {/* 3D geometric shapes with flowing motion */}
-        {[...Array(15)].map((_, i) => (
+        {mounted && [...Array(15)].map((_, i) => (
           <div
             key={`shape-${i}`}
             className="absolute w-3 h-3 bg-gradient-to-br from-cyan-400/40 to-purple-400/40 rounded-sm animate-pulse"
@@ -118,7 +123,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         ))}
         
         {/* Flowing energy streams */}
-        {[...Array(8)].map((_, i) => (
+        {mounted && [...Array(8)].map((_, i) => (
           <div
             key={`stream-${i}`}
             className="absolute w-2 h-20 bg-gradient-to-b from-cyan-400/30 via-purple-400/50 to-cyan-400/30 rounded-full blur-sm animate-pulse"
@@ -134,7 +139,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         ))}
         
         {/* Enhanced glowing orbs with 3D flow */}
-        {[...Array(10)].map((_, i) => (
+        {mounted && [...Array(10)].map((_, i) => (
           <div
             key={`orb-${i}`}
             className="absolute w-4 h-4 bg-gradient-to-r from-cyan-400/50 to-purple-400/50 rounded-full blur-sm animate-pulse"
@@ -150,7 +155,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         ))}
         
         {/* 3D floating rings */}
-        {[...Array(6)].map((_, i) => (
+        {mounted && [...Array(6)].map((_, i) => (
           <div
             key={`ring-${i}`}
             className="absolute w-8 h-8 border-2 border-cyan-400/30 rounded-full animate-pulse"
@@ -166,7 +171,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         ))}
         
         {/* Flowing light beams */}
-        {[...Array(5)].map((_, i) => (
+        {mounted && [...Array(5)].map((_, i) => (
           <div
             key={`beam-${i}`}
             className="absolute w-1 h-32 bg-gradient-to-b from-transparent via-cyan-400/40 to-transparent rounded-full blur-sm animate-pulse"

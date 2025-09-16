@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TeamCarousel from "@/components/TeamCarousel";
+import AuthNavButtons from "@/components/AuthNavButtons";
 import ExploreTeamSection from "@/components/ExploreTeamSection";
 import { TeamMember } from "@/components/TeamCard";
 
 export default function TeamsPage() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const members = [
     {
@@ -167,13 +173,8 @@ export default function TeamsPage() {
               </Link>
             ))}
           </nav>
-
-          {/* Get Started Button */}
-          <Link href="/signup">
-            <button className="hidden md:block bg-cyan-500 text-white px-4 py-2 rounded-xl shadow hover:bg-cyan-400 hover:scale-105 transition-transform duration-300">
-              Get Started
-            </button>
-          </Link>
+          {/* Auth Buttons (Desktop) */}
+          <AuthNavButtons variant="desktop" />
 
           {/* Mobile Menu Button */}
           <button
@@ -205,11 +206,8 @@ export default function TeamsPage() {
                 {item}
               </Link>
             ))}
-            <Link href="/signup">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700 transition">
-                Get Started
-              </button>
-            </Link>
+            {/* Auth Buttons (Mobile) */}
+            <AuthNavButtons variant="mobile" onNavigate={() => setIsOpen(false)} />
           </div>
         )}
       </header>
@@ -427,36 +425,38 @@ export default function TeamsPage() {
             {/* 3D Glow Container */}
             <div className="relative bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-12 shadow-[0_0_50px_rgba(147,51,234,0.2)] hover:shadow-[0_0_80px_rgba(147,51,234,0.4)] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2">
               {/* Floating 3D Elements */}
-              <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                {[...Array(12)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-2 h-2 bg-gradient-to-br from-purple-400/40 to-cyan-400/40 rounded-full animate-pulse"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${Math.random() * 3}s`,
-                      animationDuration: `${3 + Math.random() * 2}s`,
-                      transform: `translateZ(${Math.random() * 200 - 100}px)`,
-                      boxShadow: `0 0 15px rgba(147, 51, 234, 0.5)`,
-                    }}
-                  />
-                ))}
-                {[...Array(6)].map((_, i) => (
-                  <div
-                    key={`shape-${i}`}
-                    className="absolute w-3 h-3 bg-gradient-to-br from-cyan-400/30 to-purple-400/30 rounded-sm animate-pulse"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${Math.random() * 4}s`,
-                      animationDuration: `${4 + Math.random() * 2}s`,
-                      transform: `rotate(${Math.random() * 360}deg) translateZ(${Math.random() * 300 - 150}px)`,
-                      boxShadow: `0 0 20px rgba(56, 189, 248, 0.4)`,
-                    }}
-                  />
-                ))}
-              </div>
+              {mounted && (
+                <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-2 h-2 bg-gradient-to-br from-purple-400/40 to-cyan-400/40 rounded-full animate-pulse"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${Math.random() * 3}s`,
+                        animationDuration: `${3 + Math.random() * 2}s`,
+                        transform: `translateZ(${Math.random() * 200 - 100}px)`,
+                        boxShadow: `0 0 15px rgba(147, 51, 234, 0.5)`,
+                      }}
+                    />
+                  ))}
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={`shape-${i}`}
+                      className="absolute w-3 h-3 bg-gradient-to-br from-cyan-400/30 to-purple-400/30 rounded-sm animate-pulse"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${Math.random() * 4}s`,
+                        animationDuration: `${4 + Math.random() * 2}s`,
+                        transform: `rotate(${Math.random() * 360}deg) translateZ(${Math.random() * 300 - 150}px)`,
+                        boxShadow: `0 0 20px rgba(56, 189, 248, 0.4)`,
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
 
               {/* Content */}
               <div className="relative z-10 text-center">
@@ -501,7 +501,7 @@ export default function TeamsPage() {
         <div className="absolute bottom-1/3 right-1/4 h-32 w-32 rounded-full bg-blue-400/20 blur-xl animate-pulse" />
         
         {/* Floating geometric shapes with glow */}
-        {[...Array(8)].map((_, i) => (
+        {mounted && [...Array(8)].map((_, i) => (
           <div
             key={i}
             className="absolute w-3 h-3 bg-gradient-to-br from-teal-400/30 to-cyan-400/30 rounded-sm animate-pulse"
