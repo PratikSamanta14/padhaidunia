@@ -5,7 +5,9 @@
   --foreground: #171717;
 }
 
-@theme inline {
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -25,95 +27,74 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* 3D Floating Animations */
-@keyframes float-1 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  25% { transform: translate3d(20px, -30px, 10px) rotateX(10deg) rotateY(5deg); }
-  50% { transform: translate3d(-10px, -20px, 20px) rotateX(-5deg) rotateY(10deg); }
-  75% { transform: translate3d(15px, -10px, 5px) rotateX(5deg) rotateY(-5deg); }
+/* ==========================
+   Smooth Floating Animations (for abstract shapes)
+   ========================== */
+@keyframes float-slow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(8deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
-@keyframes float-2 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  33% { transform: translate3d(-25px, 20px, 15px) rotateX(-10deg) rotateY(8deg); }
-  66% { transform: translate3d(30px, -15px, 25px) rotateX(8deg) rotateY(-12deg); }
+@keyframes float-medium {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-35px) rotate(-10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
-@keyframes float-3 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  20% { transform: translate3d(15px, 25px, 8px) rotateX(12deg) rotateY(-6deg); }
-  40% { transform: translate3d(-20px, 10px, 18px) rotateX(-8deg) rotateY(10deg); }
-  60% { transform: translate3d(25px, -20px, 12px) rotateX(6deg) rotateY(-8deg); }
-  80% { transform: translate3d(-10px, 15px, 22px) rotateX(-12deg) rotateY(6deg); }
+@keyframes float-fast {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-50px) rotate(12deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
-@keyframes float-4 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  30% { transform: translate3d(18px, -25px, 14px) rotateX(8deg) rotateY(-10deg); }
-  60% { transform: translate3d(-22px, 12px, 28px) rotateX(-12deg) rotateY(6deg); }
-  90% { transform: translate3d(12px, 18px, 16px) rotateX(6deg) rotateY(-8deg); }
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
 }
 
-@keyframes float-5 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  25% { transform: translate3d(-15px, 20px, 10px) rotateX(-6deg) rotateY(12deg); }
-  50% { transform: translate3d(28px, -18px, 20px) rotateX(10deg) rotateY(-8deg); }
-  75% { transform: translate3d(-8px, 25px, 15px) rotateX(-8deg) rotateY(6deg); }
+.animate-float-medium {
+  animation: float-medium 8s ease-in-out infinite;
 }
 
-@keyframes float-6 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  40% { transform: translate3d(22px, 15px, 18px) rotateX(12deg) rotateY(-6deg); }
-  80% { transform: translate3d(-18px, -22px, 12px) rotateX(-10deg) rotateY(8deg); }
+.animate-float-fast {
+  animation: float-fast 5s ease-in-out infinite;
 }
 
-@keyframes float-7 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  35% { transform: translate3d(16px, -20px, 14px) rotateX(8deg) rotateY(-10deg); }
-  70% { transform: translate3d(-24px, 18px, 22px) rotateX(-12deg) rotateY(6deg); }
+/* ==========================
+   Pulse / Glow (used for soft glowing spots)
+   ========================== */
+@keyframes pulse-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.28;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.56;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.28;
+  }
 }
 
-@keyframes float-8 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  45% { transform: translate3d(-20px, 25px, 16px) rotateX(-8deg) rotateY(10deg); }
-  90% { transform: translate3d(26px, -12px, 18px) rotateX(10deg) rotateY(-8deg); }
+/* default pulse is provided by Tailwind — do not override.
+   Add longer / slower pulse utilities used on the page */
+.animate-pulse-slow {
+  animation: pulse-glow 8s ease-in-out infinite;
 }
 
-@keyframes float-9 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  30% { transform: translate3d(14px, 22px, 12px) rotateX(6deg) rotateY(-12deg); }
-  60% { transform: translate3d(-16px, -14px, 20px) rotateX(-10deg) rotateY(8deg); }
+.animate-pulse-slower {
+  animation: pulse-glow 12s ease-in-out infinite;
 }
 
-@keyframes float-10 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  50% { transform: translate3d(20px, -15px, 8px) rotateX(5deg) rotateY(-5deg); }
+.animate-pulse-slowest {
+  animation: pulse-glow 16s ease-in-out infinite;
 }
 
-@keyframes float-11 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  50% { transform: translate3d(-18px, 20px, 12px) rotateX(-8deg) rotateY(6deg); }
-}
-
-@keyframes float-12 {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-  50% { transform: translate3d(15px, 18px, 10px) rotateX(6deg) rotateY(-8deg); }
-}
-
-.animate-float-1 { animation: float-1 8s ease-in-out infinite; }
-.animate-float-2 { animation: float-2 10s ease-in-out infinite; }
-.animate-float-3 { animation: float-3 12s ease-in-out infinite; }
-.animate-float-4 { animation: float-4 9s ease-in-out infinite; }
-.animate-float-5 { animation: float-5 11s ease-in-out infinite; }
-.animate-float-6 { animation: float-6 13s ease-in-out infinite; }
-.animate-float-7 { animation: float-7 7s ease-in-out infinite; }
-.animate-float-8 { animation: float-8 14s ease-in-out infinite; }
-.animate-float-9 { animation: float-9 6s ease-in-out infinite; }
-.animate-float-10 { animation: float-10 15s ease-in-out infinite; }
-.animate-float-11 { animation: float-11 16s ease-in-out infinite; }
-.animate-float-12 { animation: float-12 17s ease-in-out infinite; }
-
-/* Custom Animations */
+/* ==========================
+   Fade In Up (section reveal)
+   ========================== */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -141,3 +122,23 @@ body {
 .animation-delay-600 {
   animation-delay: 600ms;
 }
+
+/* ==========================
+   Slide down (mobile nav)
+   ========================== */
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slideDown {
+  animation: slide-down 220ms ease-out forwards;
+}
+
+/* End of file */
