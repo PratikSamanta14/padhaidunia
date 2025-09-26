@@ -7,6 +7,13 @@ import AuthNavButtons from "@/components/AuthNavButtons";
 import ExploreTeamSection from "@/components/ExploreTeamSection";
 import { TeamMember } from "@/components/TeamCard";
 
+// Added styles for dark background matching the homepage image
+const pageStyle = {
+  backgroundColor: "#0a0e17", // Dark navy/black background color from the image
+  minHeight: "100vh",
+  color: "white"
+};
+
 export default function TeamsPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -140,7 +147,7 @@ export default function TeamsPage() {
   ].filter(section => section.members.length > 0);
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden" style={pageStyle}>
       {/* Navbar */}
       <header className="sticky top-0 bg-gray-800/80 backdrop-blur-lg shadow-md z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">

@@ -94,14 +94,14 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         {mounted && [...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-blue-400/60 rounded-full animate-pulse"
             style={{
               left: `${20 + Math.random() * 60}%`,
               top: `${30 + Math.random() * 40}%`,
               animationDelay: `${Math.random() * 3}s`,
               animationDuration: `${3 + Math.random() * 2}s`,
               transform: `translateZ(${Math.random() * 400 - 200}px) translateX(${Math.sin(i) * 50}px) translateY(${Math.cos(i) * 30}px)`,
-              boxShadow: `0 0 10px rgba(56, 189, 248, 0.6)`,
+              boxShadow: `0 0 10px rgba(59, 130, 246, 0.6)`,
             }}
           />
         ))}
@@ -110,14 +110,14 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         {mounted && [...Array(15)].map((_, i) => (
           <div
             key={`shape-${i}`}
-            className="absolute w-3 h-3 bg-gradient-to-br from-cyan-400/40 to-purple-400/40 rounded-sm animate-pulse"
+            className="absolute w-3 h-3 bg-gradient-to-br from-blue-400/40 to-blue-600/40 rounded-sm animate-pulse"
             style={{
               left: `${10 + Math.random() * 80}%`,
               top: `${20 + Math.random() * 60}%`,
               animationDelay: `${Math.random() * 4}s`,
               animationDuration: `${4 + Math.random() * 3}s`,
               transform: `translateZ(${Math.random() * 500 - 250}px) rotate(${Math.random() * 360}deg) translateX(${Math.sin(i * 0.5) * 100}px) translateY(${Math.cos(i * 0.3) * 60}px)`,
-              boxShadow: `0 0 15px rgba(56, 189, 248, 0.4)`,
+              boxShadow: `0 0 15px rgba(59, 130, 246, 0.4)`,
             }}
           />
         ))}
@@ -126,14 +126,14 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         {mounted && [...Array(8)].map((_, i) => (
           <div
             key={`stream-${i}`}
-            className="absolute w-2 h-20 bg-gradient-to-b from-cyan-400/30 via-purple-400/50 to-cyan-400/30 rounded-full blur-sm animate-pulse"
+            className="absolute w-2 h-20 bg-gradient-to-b from-blue-400/30 via-blue-500/50 to-blue-400/30 rounded-full blur-sm animate-pulse"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${20 + Math.random() * 60}%`,
               animationDelay: `${Math.random() * 6}s`,
               animationDuration: `${6 + Math.random() * 3}s`,
               transform: `translateZ(${Math.random() * 300 - 150}px) rotate(${Math.random() * 360}deg) translateX(${Math.sin(i * 0.8) * 80}px)`,
-              boxShadow: `0 0 25px rgba(56, 189, 248, 0.3)`,
+              boxShadow: `0 0 25px rgba(59, 130, 246, 0.3)`,
             }}
           />
         ))}
@@ -142,14 +142,14 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
         {mounted && [...Array(10)].map((_, i) => (
           <div
             key={`orb-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-cyan-400/50 to-purple-400/50 rounded-full blur-sm animate-pulse"
+            className="absolute w-4 h-4 bg-gradient-to-r from-blue-400/50 to-blue-600/50 rounded-full blur-sm animate-pulse"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${25 + Math.random() * 50}%`,
               animationDelay: `${Math.random() * 5}s`,
               animationDuration: `${5 + Math.random() * 2}s`,
               transform: `translateZ(${Math.random() * 600 - 300}px) translateX(${Math.sin(i * 0.7) * 120}px) translateY(${Math.cos(i * 0.4) * 80}px)`,
-              boxShadow: `0 0 20px rgba(56, 189, 248, 0.5)`,
+              boxShadow: `0 0 20px rgba(59, 130, 246, 0.5)`,
             }}
           />
         ))}
@@ -221,7 +221,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
                 }}
                 aria-label={isActive ? `${m.name}, active` : `View ${m.name}`}
               >
-                <div className={`relative w-[340px] sm:w-[420px] h-[560px] sm:h-[620px] rounded-[22px] overflow-hidden shadow-[0_20px_60px_rgba(147,51,234,0.20)] bg-gradient-to-br from-slate-800/40 via-purple-900/30 to-slate-800/40 backdrop-blur-sm border border-purple-500/30 transition-all duration-500 hover:shadow-[0_30px_100px_rgba(147,51,234,0.6)] hover:shadow-purple-500/40 hover:scale-[1.05] hover:-translate-y-2 hover:rotate-y-3 hover:rotate-x-2 ${isActive ? "ring-4 ring-purple-300/70 shadow-[0_40px_120px_rgba(147,51,234,0.5)] shadow-purple-500/50" : "ring-0"}`}>
+                <div className={`relative w-[340px] sm:w-[420px] h-[560px] sm:h-[620px] rounded-[22px] overflow-hidden shadow-[0_20px_60px_rgba(30,64,175,0.30)] bg-gradient-to-br from-slate-800/40 via-blue-900/40 to-slate-800/40 backdrop-blur-sm border border-blue-500/30 transition-all duration-500 hover:shadow-[0_30px_100px_rgba(30,64,175,0.6)] hover:shadow-blue-500/40 hover:scale-[1.05] hover:-translate-y-2 hover:rotate-y-3 hover:rotate-x-2 ${isActive ? "ring-4 ring-blue-300/70 shadow-[0_40px_120px_rgba(30,64,175,0.5)] shadow-blue-500/50" : "ring-0"}`}>
                   <div className="relative h-[76%] w-full">
                     <Image
                       src={m.img}
@@ -232,14 +232,14 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
                       priority={isActive}
                     />
                   </div>
-                  <div className="h-[24%] w-full bg-gradient-to-b from-slate-700/80 to-slate-800/95 text-purple-50 px-5 sm:px-6 pt-4 pb-5 flex flex-col justify-between border-t border-purple-300/20">
+                  <div className="h-[24%] w-full bg-gradient-to-b from-slate-700/80 to-slate-800/95 text-blue-50 px-5 sm:px-6 pt-4 pb-5 flex flex-col justify-between border-t border-blue-300/20">
                     <div className="min-h-0">
-                      <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-tight text-purple-50">{m.name}</h3>
-                      <div className="text-[0.95rem] sm:text-base text-purple-200 font-semibold mt-0.5">{m.role}</div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-tight text-blue-50">{m.name}</h3>
+                      <div className="text-[0.95rem] sm:text-base text-blue-200 font-semibold mt-0.5">{m.role}</div>
                     </div>
                     <div className="mt-2 flex items-center gap-3">
                       {m.description ? (
-                        <p className="text-[0.85rem] text-purple-100/95 leading-snug line-clamp-2 flex-1">
+                        <p className="text-[0.85rem] text-blue-100/95 leading-snug line-clamp-2 flex-1">
                           {m.description}
                         </p>
                       ) : <span className="flex-1" />}
@@ -248,7 +248,7 @@ export default function TeamCarousel({ members, intervalMs = 2500 }: TeamCarouse
                           href={m.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-purple-300/50 bg-purple-700/50 hover:bg-purple-600/60 transition-colors shadow-[0_0_18px_rgba(147,51,234,0.35)]"
+                          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-blue-300/50 bg-blue-700/50 hover:bg-blue-600/60 transition-colors shadow-[0_0_18px_rgba(30,64,175,0.35)]"
                           aria-label={`${m.name} LinkedIn`}
                         >
                           <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-purple-50">
